@@ -1,0 +1,265 @@
+/* -------- HOME PAGE STYLES -------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* -------- RESET -------- */
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+}
+
+/* -------- THEME VARIABLES -------- */
+:root {
+        /* Light Theme */
+        --bg-color: #ffffff;
+        --text-color: #1a1a1a;
+        --nav-bg: #ffffffd9;
+        --card-bg: #f5f7fa;
+        --card-border: #e0e0e0;
+        --hero-text: #000;
+        --footer-bg: #f1f1f1;
+        --brand-cyan: #1aadf2;
+        --link-color: #1a1a1a;
+        --btn-text: #000;
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+        :root {
+                --bg-color: #0d0f12;
+                --text-color: #e6e6e6;
+                --nav-bg: rgba(0, 0, 0, 0.75);
+                --card-bg: #111418;
+                --card-border: #1c1f25;
+                --hero-text: #fff;
+                --footer-bg: #080a0c;
+                --link-color: #e6e6e6;
+                --btn-text: #000;
+        }
+}
+
+body {
+        background: var(--bg-color);
+        color: var(--text-color);
+        min-height: 100vh;
+}
+
+/* -------- NAVBAR -------- */
+.navbar {
+        width: 100%;
+        background: var(--nav-bg);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid var(--footer-bg);
+}
+
+.container {
+        width: 90%;
+        margin: auto;
+}
+
+.nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+}
+
+.logo {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+}
+
+.logo img {
+        height: 50px;
+}
+
+.logo-txt .logo-txt-bottom {
+        margin-top: -10px;
+}
+
+.nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+}
+
+.nav-links a {
+        color: var(--link-color);
+        text-decoration: none;
+        transition: .3s;
+        font-weight: 500;
+}
+
+.nav-links a:hover {
+        color: var(--brand-cyan);
+}
+
+.login-btn {
+        background: var(--brand-cyan);
+        padding: 8px 18px;
+        border-radius: 6px;
+        color: var(--btn-text);
+        font-weight: 600;
+        font-size: 16px;
+}
+
+/* -------- HERO -------- */
+.hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 80px;
+        overflow: hidden;
+}
+
+/* Blurred background image layer */
+.hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("img/g.jpg") no-repeat center/cover;
+        filter: blur(8px);
+        transform: scale(1.1);
+        z-index: -1;
+}
+
+.hero-content h1 {
+        font-size: 40px;
+        color: #e6e6e6;
+        padding-left: 250px;
+        padding-right: 250px;
+        line-height: 45px;
+        font-weight: 600;
+}
+
+.hero-content h1 span {
+        color: var(--brand-cyan);
+        font-weight: 650;
+}
+
+.hero-content p {
+        margin: 10px 0 20px;
+        padding-left: 250px;
+        color: #e0e0e0;
+        padding-right: 250px;
+        font-size: 20px;
+        line-height: 25px;
+}
+
+.btn {
+        display: inline-block;
+        padding: 10px 24px;
+        border-radius: 6px;
+        background: var(--brand-cyan);
+        color: var(--bg-color);
+        text-decoration: none;
+        font-weight: 600;
+}
+
+.btn.primary {
+        margin-top: 10px;
+}
+
+/* -------- SECTIONS -------- */
+.section {
+        padding: 70px 0;
+}
+
+.section-title {
+        text-align: center;
+        margin-bottom: 35px;
+        font-size: 26px;
+}
+
+/* -------- GRID CARDS -------- */
+.grid {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+}
+
+.card {
+        background: var(--card-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        transition: .3s;
+}
+
+.card:hover {
+        transform: translateY(-5px);
+        border-color: var(--brand-cyan);
+}
+
+.card i {
+        font-size: 28px;
+        color: var(--brand-cyan);
+}
+
+.card h3 {
+        margin: 10px 0;
+}
+
+/* -------- TEXT -------- */
+.center-text {
+        text-align: center;
+        margin-bottom: 20px;
+        padding-left: 250px;
+        padding-right: 250px;
+}
+
+.center-btn {
+        text-align: center;
+}
+
+/* -------- FOOTER -------- */
+footer {
+        text-align: center;
+        padding: 20px 0;
+        background: var(--footer-bg);
+        margin-top: 40px;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: #25D366;
+        text-decoration: none;
+        color: #fff;
+        font-size: 28px;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+        transform: scale(1.1);
+}
+
