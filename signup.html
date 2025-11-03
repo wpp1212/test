@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Sign Up - DreamWave Technology</title>
+                <link rel="stylesheet" href="auth.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        </head>
+
+        <body>
+                <!-- Signup Form -->
+                <div class="auth-container">
+                        <div class="auth-card">
+                                <div class="auth-header">
+                                        <div class="auth-logo">
+                                                <img src="dwt-logo.png" alt="DreamWave Technology Logo">
+                                                <div class="logo-txt">
+                                                        <div class="logo-txt-top">DreamWave</div>
+                                                        <div class="logo-txt-bottom">Technology</div>
+                                                </div>
+                                        </div>
+                                        <h2 class="auth-title">Create Account</h2>
+                                        <p class="auth-subtitle">Sign up to get started with our services</p>
+                                </div>
+
+                                <form id="signupForm">
+                                        <div class="form-group">
+                                                <label for="username">Username</label>
+                                                <input type="text" id="username" class="form-control"
+                                                        placeholder="Choose a username" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label for="email">Email Address</label>
+                                                <input type="email" id="email" class="form-control"
+                                                        placeholder="Enter your email" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <div class="password-input-container">
+                                                        <input type="password" id="password" class="form-control"
+                                                                placeholder="Create a password" required>
+                                                        <button type="button" class="toggle-password"
+                                                                id="togglePassword">
+                                                                <i class="far fa-eye"></i>
+                                                        </button>
+                                                </div>
+                                                <div class="requirements" id="passwordRequirements">
+                                                        <div class="requirement invalid" id="lengthReq">
+                                                                <i class="fas fa-times"></i> At least 5 characters
+                                                        </div>
+                                                        <div class="requirement invalid" id="uppercaseReq">
+                                                                <i class="fas fa-times"></i> One uppercase letter
+                                                        </div>
+                                                        <div class="requirement invalid" id="lowercaseReq">
+                                                                <i class="fas fa-times"></i> One lowercase letter
+                                                        </div>
+                                                        <div class="requirement invalid" id="numberReq">
+                                                                <i class="fas fa-times"></i> One number
+                                                        </div>
+                                                        <div class="requirement invalid" id="symbolReq">
+                                                                <i class="fas fa-times"></i> One symbol
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label for="confirmPassword">Confirm Password</label>
+                                                <div class="password-input-container">
+                                                        <input type="password" id="confirmPassword" class="form-control"
+                                                                placeholder="Confirm your password" required>
+                                                        <button type="button" class="toggle-password"
+                                                                id="toggleConfirmPassword">
+                                                                <i class="far fa-eye"></i>
+                                                        </button>
+                                                </div>
+                                                <div class="error-message" id="passwordMatchError">
+                                                        <i class="fas fa-exclamation-circle"></i> Passwords do not match
+                                                </div>
+                                                <div class="success-message" id="passwordMatchSuccess">
+                                                        <i class="fas fa-check-circle"></i> Passwords match
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label for="whatsapp">WhatsApp Number</label>
+                                                <input type="tel" id="whatsapp" class="form-control"
+                                                        placeholder="Enter your WhatsApp number">
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label for="contact">Contact Number</label>
+                                                <input type="tel" id="contact" class="form-control"
+                                                        placeholder="Enter your contact number">
+                                        </div>
+
+                                        <button type="submit" class="auth-btn" id="signupBtn" disabled>Create
+                                                Account</button>
+
+                                        <div class="auth-footer">
+                                                <p>Already have an account? <a href="login.html" class="auth-link">Login
+                                                                here</a></p>
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+
+                <!-- WhatsApp Floating Button -->
+                <a href="https://wa.me/94785861321" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <script>
+                        // Password validation requirements
+                        const requirements = {
+                                length: { regex: /.{5,}/, element: document.getElementById('lengthReq') },
+                                uppercase: { regex: /[A-Z]/, element: document.getElementById('uppercaseReq') },
+                                lowercase: { regex: /[a-z]/, element: document.getElementById('lowercaseReq') },
+                                number: { regex: /[0-9]/, element: document.getElementById('numberReq') },
+                                symbol: { regex: /[^A-Za-z0-9]/, element: document.getElementById('symbolReq') }
+                        };
+
+                        // Toggle password visibility
+                        document.getElementById('togglePassword').addEventListener('click', function () {
+                                const passwordInput = document.getElementById('password');
+                                const icon = this.querySelector('i');
+
+                                if (passwordInput.type === 'password') {
+                                        passwordInput.type = 'text';
+                                        icon.classList.remove('fa-eye');
+                                        icon.classList.add('fa-eye-slash');
+                                } else {
+                                        passwordInput.type = 'password';
+                                        icon.classList.remove('fa-eye-slash');
+                                        icon.classList.add('fa-eye');
+                                }
+                        });
+
+                        document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+                                const confirmPasswordInput = document.getElementById('confirmPassword');
+                                const icon = this.querySelector('i');
+
+                                if (confirmPasswordInput.type === 'password') {
+                                        confirmPasswordInput.type = 'text';
+                                        icon.classList.remove('fa-eye');
+                                        icon.classList.add('fa-eye-slash');
+                                } else {
+                                        confirmPasswordInput.type = 'password';
+                                        icon.classList.remove('fa-eye-slash');
+                                        icon.classList.add('fa-eye');
+                                }
+                        });
+
+                        // Password validation
+                        document.getElementById('password').addEventListener('input', function () {
+                                const password = this.value;
+                                let allValid = true;
+
+                                // Check each requirement
+                                for (const key in requirements) {
+                                        if (requirements[key].regex.test(password)) {
+                                                requirements[key].element.classList.remove('invalid');
+                                                requirements[key].element.classList.add('valid');
+                                                requirements[key].element.querySelector('i').classList.remove('fa-times');
+                                                requirements[key].element.querySelector('i').classList.add('fa-check');
+                                        } else {
+                                                requirements[key].element.classList.remove('valid');
+                                                requirements[key].element.classList.add('invalid');
+                                                requirements[key].element.querySelector('i').classList.remove('fa-check');
+                                                requirements[key].element.querySelector('i').classList.add('fa-times');
+                                                allValid = false;
+                                        }
+                                }
+
+                                // Check password match
+                                checkPasswordMatch();
+
+                                // Enable/disable signup button
+                                document.getElementById('signupBtn').disabled = !allValid ||
+                                        document.getElementById('password').value !== document.getElementById('confirmPassword').value;
+                        });
+
+                        // Confirm password validation
+                        document.getElementById('confirmPassword').addEventListener('input', checkPasswordMatch);
+
+                        function checkPasswordMatch() {
+                                const password = document.getElementById('password').value;
+                                const confirmPassword = document.getElementById('confirmPassword').value;
+                                const errorElement = document.getElementById('passwordMatchError');
+                                const successElement = document.getElementById('passwordMatchSuccess');
+
+                                if (confirmPassword === '') {
+                                        errorElement.style.display = 'none';
+                                        successElement.style.display = 'none';
+                                } else if (password === confirmPassword) {
+                                        errorElement.style.display = 'none';
+                                        successElement.style.display = 'block';
+                                } else {
+                                        errorElement.style.display = 'block';
+                                        successElement.style.display = 'none';
+                                }
+
+                                // Enable/disable signup button
+                                const allValid = Object.values(requirements).every(req =>
+                                        req.element.classList.contains('valid')
+                                );
+
+                                document.getElementById('signupBtn').disabled = !allValid || password !== confirmPassword;
+                        }
+
+                        // Form submission
+                        document.getElementById('signupForm').addEventListener('submit', function (e) {
+                                e.preventDefault();
+
+                                const username = document.getElementById('username').value;
+                                const email = document.getElementById('email').value;
+                                const password = document.getElementById('password').value;
+                                const confirmPassword = document.getElementById('confirmPassword').value;
+                                const whatsapp = document.getElementById('whatsapp').value;
+                                const contact = document.getElementById('contact').value;
+
+                                // Final validation
+                                if (password !== confirmPassword) {
+                                        alert('Passwords do not match');
+                                        return;
+                                }
+
+                                // In a real application, you would send this data to a server
+                                alert('Account created successfully!');
+                                // Redirect to login page or dashboard
+                                // window.location.href = 'login.html';
+                        });
+                </script>
+        </body>
+
+</html>
